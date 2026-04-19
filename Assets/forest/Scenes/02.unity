@@ -20798,6 +20798,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3831721994423846891, guid: 3f0d7887311e67a43b3b01a54dc5cf6c, type: 3}
+      propertyPath: m_AllowMSAA
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3f0d7887311e67a43b3b01a54dc5cf6c, type: 3}
 --- !u!1 &3831721994621966348 stripped
@@ -20817,9 +20821,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5b2905dada61a847b8694e100385e94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Distancia_a_seguir: {x: 0, y: 6.29, z: -5.31}
+  _Distancia_a_seguir: {x: 0, y: 6, z: -2}
   smoothSpeed: 1
-  RotX: 42.7
+  RotX: 45
   RotY: 0
   Tag_Seguir: Jugador
 --- !u!114 &3841137246436162485
