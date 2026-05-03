@@ -10,11 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 187113749677091894}
   - component: {fileID: 187113749677091893}
-  - component: {fileID: 187113749677091892}
   - component: {fileID: 187113749677091890}
   - component: {fileID: 187113749677091888}
   - component: {fileID: 187113749677091891}
-  - component: {fileID: 6623106722051616533}
+  - component: {fileID: 8619298967140255853}
   m_Layer: 6
   m_Name: Camera.Main
   m_TagString: MainCamera
@@ -31,8 +30,8 @@ Transform:
   m_GameObject: {fileID: 187113749677091897}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 27.89, y: 0.5758959, z: -17.53836}
-  m_LocalScale: {x: 2, y: 2, z: 2}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -73,30 +72,13 @@ Camera:
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
   m_TargetEye: 3
-  m_HDR: 1
-  m_AllowMSAA: 1
+  m_HDR: 0
+  m_AllowMSAA: 0
   m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!114 &187113749677091892
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 187113749677091897}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5b2905dada61a847b8694e100385e94, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _Distancia_a_seguir: {x: 0, y: 2, z: -3}
-  smoothSpeed: 1
-  RotX: 15
-  RotY: 0
-  Tag_Seguir: Jugador
 --- !u!81 &187113749677091890
 AudioListener:
   m_ObjectHideFlags: 0
@@ -181,8 +163,8 @@ MonoBehaviour:
   isGlobal: 0
   blendDistance: 0
   weight: 1
-  priority: 0
---- !u!114 &6623106722051616533
+  priority: 1
+--- !u!114 &8619298967140255853
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -191,11 +173,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 187113749677091897}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5b2905dada61a847b8694e100385e94, type: 3}
+  m_Script: {fileID: 11500000, guid: f76806479d916a64aa03f8e3eba7912f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Distancia_a_seguir: {x: 0, y: 4, z: -3}
-  smoothSpeed: 1
-  RotX: 30
-  RotY: 0
-  Tag_Seguir: Jugador
+  target: {fileID: 0}
+  distance: 2
+  height: 8
+  rotationDamping: 0
+  heightDamping: 30
