@@ -1,72 +1,61 @@
+#region Namespaces
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityStandardAssets.CrossPlatformInput;
-
+#endregion
 public class C_Controller : MonoBehaviour{
-    
+    #region Variables
+	[Header ("Grabity")]
+	public float gravity = 20.0F;
+	private Vector3 gravityDirection = Vector3.zero; 
     [SerializeField]bool CursorIsvisble;
-    
+
     [Header ("Movement")]
     [SerializeField]float Speed;
-    [SerializeField]string Horizontal,Vertical,Button_Attake="Fire1";
+	[SerializeField]string Horizontal="Horizontal",Vertical="Vertical";
 
-
-    private CharacterController _controller;
-    GameManager gameManager;
+	private CharacterController _controller;
     private float Axis_Horizontal, Axis_Vertical;    
     private Vector3 _move;    
     private Animator _anim;
-    private bool Attake;
-
+    #endregion
+    #region Unity voids
     private void Start() {
         _anim=gameObject.GetComponent<Animator>();
         _controller = GetComponent<CharacterController>();
-        gameManager=FindObjectOfType<GameManager>();
     }
     void Update(){
-        Axis_Horizontal=CrossPlatformInputManager.GetAxisRaw(Horizontal);
-        Axis_Vertical=CrossPlatformInputManager.GetAxisRaw(Vertical);
-        Attake = CrossPlatformInputManager.GetButton(Button_Attake);
-        
-        _move=new Vector3(Axis_Vertical,0,Axis_Horizontal);
         Cursor.visible = CursorIsvisble;
-
-        Atake();
-        Rotate(_move);
-        Movement(_move);       
+        Move();
+		Gravity();
     } 
+    #endregion
+    #region Move  
+        void Move(){
+		Axis_Horizontal=Input.GetAxis(Horizontal);
+		Axis_Vertical=Input.GetAxis(Vertical);
 
-        void Movement(Vector3 Moverse){ 
-        _controller.Move(Moverse * Time.deltaTime * Speed);       
-          if (Axis_Horizontal!=0){           
-                 _anim.SetBool("IsRunning",true);             
-        }if (Axis_Horizontal==0){                 
-             _anim.SetBool("IsRunning",false);             
-        }if (Axis_Vertical>=0.1f){                 
-             _anim.SetFloat("Speed",1.0f);             
-        }if (Axis_Vertical==0){                 
-             _anim.SetFloat("Speed",0.0f);             
-        }if (Axis_Vertical<=-0.1f){                 
-             _anim.SetFloat("Speed",1.0f);             
-        }
-        
-    
-    } 
-    private void Atake() {
-        if (Attake==true && gameManager.IsCoin==true){             
-        _anim.SetBool("Ataque",true);
-        }else{             
-        _anim.SetBool("Ataque",false);
-        }
-    } 
-      
+		_move=new Vector3(Axis_Vertical,0,Axis_Horizontal);
 
-void Rotate(Vector3 move){
+		_controller.Move(_move * Time.deltaTime * Speed);       
+                          
+             _anim.SetFloat("SpeedX",_move.x);
+             _anim.SetFloat("SpeedY",_move.z);
+			
+		Rotate(_move);
+    } 
+    #endregion  
+	#region create voids
+    void Rotate(Vector3 move){
         Vector3 Rotation=new Vector3 (move.x,0, move.z);        
          if (Axis_Horizontal!=0 || Axis_Vertical!=0){
           transform.rotation= Quaternion.LookRotation(Rotation);
         }
     }
-    
+
+	void Gravity() {      
+		gravityDirection.y -= gravity * Time.deltaTime;
+		_controller.Move(gravityDirection * Time.deltaTime);
+	}
+    #endregion
 }
