@@ -51,5 +51,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "ManPac-New_UI_Unity_2026.sln"
+    "dotnet.defaultSolution": "ManPac-New_UI_Unity_2021_-2026-.slnx"
 }

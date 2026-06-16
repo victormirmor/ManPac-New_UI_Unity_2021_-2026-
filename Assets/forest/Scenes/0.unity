@@ -2195,9 +2195,9 @@ RectTransform:
   m_Father: {fileID: 1044858962}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 330, y: 90}
-  m_SizeDelta: {x: 300, y: 90}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: 0, y: 60}
+  m_SizeDelta: {x: 0, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &218284249
 MonoBehaviour:
@@ -2256,7 +2256,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 3
     m_MaxSize: 112
-    m_Alignment: 3
+    m_Alignment: 4
     m_AlignByGeometry: 1
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -2528,7 +2528,6 @@ GameObject:
   - component: {fileID: 238603990}
   - component: {fileID: 238603995}
   - component: {fileID: 238603996}
-  - component: {fileID: 238603997}
   m_Layer: 5
   m_Name: LevelManager(Canvas)
   m_TagString: Untagged
@@ -2690,19 +2689,6 @@ MonoBehaviour:
   HighScore: {fileID: 0}
   ManagerText: {fileID: 238603990}
   gamanager: {fileID: 0}
---- !u!114 &238603997
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 238603988}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60c31486f0b39654282bb32ecb817d18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fpsText: {fileID: 218284251}
 --- !u!1 &240259767
 GameObject:
   m_ObjectHideFlags: 0
@@ -10574,6 +10560,9 @@ GameObject:
   - component: {fileID: 1194159855}
   - component: {fileID: 1194159854}
   - component: {fileID: 1194159856}
+  - component: {fileID: 1194159858}
+  - component: {fileID: 1194159857}
+  - component: {fileID: 1194159859}
   m_Layer: 5
   m_Name: Canvas pause
   m_TagString: Untagged
@@ -10753,6 +10742,83 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 3.06
+--- !u!114 &1194159857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1194159846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b63c46168d527140bd91c6803aae58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InputDataMap
+  axisDeadzone: 0.2
+  SliderDrift: {fileID: 2181707586195905849}
+  horizontal: 0
+  vertical: 0
+  modernA_Submit: 0
+  modernB_Cancel: 1
+  modernStart_Pause: 7
+  modernView_Select: 6
+  legacySubmit: 2
+  legacyCancel: 3
+  legacyPause: 9
+  legacySelect: 8
+  currentType: 0
+  deviceName: 
+  axes:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  buttons: 00000000000000000000
+  actionSubmit: 0
+  actionCancel: 0
+  actionPause: 0
+  actionSelectButton: 0
+--- !u!114 &1194159858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1194159846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59fe406b9fee65e4abe4197423fa0dc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MenuInputManager
+  layers:
+  - name: 
+    panelObject: {fileID: 1194159846}
+    buttons: []
+    currentIndex: 0
+  activeLayerIndex: 0
+  modernSubmit: 0
+  legacySubmit: 2
+--- !u!114 &1194159859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1194159846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89bb138e764c6b846b46e213c0b0e96d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PauseController
+  controllerDisplayText: {fileID: 218284251}
+  WaitTime: 5
+  pauseCanvas: {fileID: 1194159852}
+  gameplayScript: {fileID: 8586354264223922617}
+  menuInput: {fileID: 1194159858}
 --- !u!1 &1219567446
 GameObject:
   m_ObjectHideFlags: 0
@@ -24913,10 +24979,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2095287711}
     m_Modifications:
-    - target: {fileID: 4682628393009668400, guid: c4a0721d4197ea546ba318fd9b05e13e, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 3e426b0427afce046a64afb257f06e99, type: 2}
     - target: {fileID: 8586354264232441602, guid: c4a0721d4197ea546ba318fd9b05e13e, type: 3}
       propertyPath: m_Name
       value: Amy_LOD_control
@@ -24974,6 +25036,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8586354264232441615, guid: c4a0721d4197ea546ba318fd9b05e13e, type: 3}
   m_PrefabInstance: {fileID: 8586354264223922612}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8586354264223922617 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9192224397885421840, guid: c4a0721d4197ea546ba318fd9b05e13e, type: 3}
+  m_PrefabInstance: {fileID: 8586354264223922612}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb61e933e06a91441852430be78e59d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::C_Animation
 --- !u!114 &8586590010163257631
 MonoBehaviour:
   m_ObjectHideFlags: 0
